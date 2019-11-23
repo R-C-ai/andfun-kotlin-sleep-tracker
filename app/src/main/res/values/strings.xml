@@ -52,5 +52,7 @@
 
     <!-- Toast to play after Clear button has been pressed -->
     <string name="cleared_message">All your data is gone forever.</string>
+    <string name="informatiom_for_this_night">Please enter any information for this night</string>
+    <string name="info_text">infotext</string>
 
 </resources>

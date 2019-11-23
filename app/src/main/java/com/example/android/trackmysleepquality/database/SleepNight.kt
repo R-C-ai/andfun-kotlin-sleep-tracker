@@ -16,9 +16,13 @@
 
 package com.example.android.trackmysleepquality.database
 
+import android.widget.EditText
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.android.trackmysleepquality.R
+import com.google.android.material.textfield.TextInputEditText
+import kotlinx.android.synthetic.main.fragment_sleep_quality.view.*
 
 @Entity(tableName = "daily_sleep_quality_table")
 data class SleepNight(
@@ -31,6 +35,10 @@ data class SleepNight(
         @ColumnInfo(name = "end_time_milli")
         var endTimeMilli: Long = startTimeMilli,
 
-        @ColumnInfo(name = "quality_rating")
+        @ColumnInfo(name= "information")
+        var information : String ="",
+
+        @ColumnInfo(name  = "quality_rating")
         var sleepQuality: Int = -1
+
 )

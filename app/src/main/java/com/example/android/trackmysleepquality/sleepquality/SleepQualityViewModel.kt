@@ -16,10 +16,18 @@
 
 package com.example.android.trackmysleepquality.sleepquality
 
+import android.os.Bundle
+import android.widget.EditText
+import android.view.LayoutInflater
+
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.android.trackmysleepquality.R
 import com.example.android.trackmysleepquality.database.SleepDatabaseDao
+import com.example.android.trackmysleepquality.databinding.FragmentSleepQualityBinding
+import kotlinx.android.synthetic.main.fragment_sleep_quality.view.*
 import kotlinx.coroutines.*
 
 /**
@@ -92,7 +100,9 @@ class SleepQualityViewModel(
             // our Room database.
             withContext(Dispatchers.IO) {
                 val tonight = database.get(sleepNightKey) ?: return@withContext
+
                 tonight.sleepQuality = quality
+                tonight.information = info
                 database.update(tonight)
             }
 
@@ -100,5 +110,7 @@ class SleepQualityViewModel(
             _navigateToSleepTracker.value = true
         }
     }
+
+    var info: String = ""
 }
 
